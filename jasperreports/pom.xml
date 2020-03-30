@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.sf.jasperreports</groupId>
 	<artifactId>jasperreports</artifactId>
-	<version>master-SNAPSHOT</version>
+	<version>6.16.0</version>
 	<packaging>jar</packaging>
 	<name>JasperReports Library</name>
 	<description>Free Java Reporting Library</description>
@@ -174,6 +174,12 @@
 			<version>2.7.2</version>
 			<scope>compile</scope>
 			<optional>true</optional>
+			<exclusions>
+				<exclusion>
+					<groupId>xml-apis</groupId>
+					<artifactId>xml-apis</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jdt</groupId>
@@ -228,6 +234,10 @@
 					<groupId>xerces</groupId>
 					<artifactId>xercesImpl</artifactId>
 				</exclusion>
+				<exclusion>
+					<groupId>xml-apis</groupId>
+					<artifactId>xml-apis</artifactId>
+				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
@@ -268,7 +278,7 @@
 		<dependency>
 			<groupId>jaxen</groupId>
 			<artifactId>jaxen</artifactId>
-			<version>1.1.6</version>
+			<version>1.2.0</version>
 			<scope>compile</scope>
 			<optional>true</optional>
 		</dependency>
@@ -299,6 +309,12 @@
 			<version>1.11</version>
 			<scope>compile</scope>
 			<optional>true</optional>
+			<exclusions>
+				<exclusion>
+					<groupId>xml-apis</groupId>
+					<artifactId>xml-apis</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.xmlgraphics</groupId>
@@ -397,13 +413,6 @@
 			<optional>false</optional>
 		</dependency>
 		<dependency>
-			<groupId>xml-apis</groupId>
-			<artifactId>xml-apis-ext</artifactId>
-			<version>1.3.04</version>
-			<scope>compile</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
 			<version>6.8.1</version>
@@ -430,7 +439,7 @@
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports-fonts</artifactId>
-			<version>master-SNAPSHOT</version>
+			<version>${project.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -499,7 +508,7 @@
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports-metadata</artifactId>
-			<version>master-SNAPSHOT</version>
+			<version>${project.version}</version>
 			<scope>compile</scope>
 			<optional>true</optional>
 		</dependency>
@@ -609,8 +618,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>11</source>
+					<target>11</target>
 					<showWarnings>true</showWarnings>
 					<fork>true</fork><!-- TODO lucianc is this ok? -->
 					<compilerArgs>
