@@ -24,7 +24,6 @@
 package net.sf.jasperreports.engine.query;
 
 import java.lang.reflect.Array;
-import java.lang.reflect.Constructor;
 import java.math.BigDecimal;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -43,6 +42,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.sql.rowset.CachedRowSet;
+import javax.sql.rowset.RowSetProvider;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -102,8 +102,6 @@ public class JRJdbcQueryExecuter extends JRAbstractQueryExecuter
 	
 	protected static final String HOLD_CURSORS_OVER_COMMIT = "hold";
 	protected static final String CLOSE_CURSORS_AT_COMMIT = "close";
-	
-	protected static final String CACHED_ROWSET_CLASS = "com.sun.rowset.CachedRowSetImpl";
 	
 	protected static final Pattern PROCEDURE_CALL_PATTERN = Pattern.compile("\\s*\\{\\s*call\\s+", 
 			Pattern.MULTILINE | Pattern.CASE_INSENSITIVE);
@@ -314,18 +312,7 @@ public class JRJdbcQueryExecuter extends JRAbstractQueryExecuter
 				
 				if(isCachedRowSet)
 				{
-					CachedRowSet cachedRowSet;
-					try
-					{
-						Class<? extends CachedRowSet> clazz = (Class<? extends CachedRowSet>)Class.forName(CACHED_ROWSET_CLASS);
-						Constructor<? extends CachedRowSet> constructor = clazz.getConstructor();
-						cachedRowSet = constructor.newInstance();
-					}
-					catch (Exception e)
-					{
-						throw new JRException(e);
-					}
-					
+					CachedRowSet cachedRowSet = RowSetProvider.newFactory().createCachedRowSet();
 					cachedRowSet.populate(queryResult);
 					closeStatement();
 					resultSet = cachedRowSet;
