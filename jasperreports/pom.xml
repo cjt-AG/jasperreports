@@ -4,7 +4,7 @@
 	<groupId>net.sf.jasperreports</groupId>
 	<artifactId>jasperreports</artifactId>
 	<version>6.16.0</version>
-	<packaging>jar</packaging>
+	<packaging>bundle</packaging>
 	<name>JasperReports Library</name>
 	<description>Free Java Reporting Library</description>
 	<url>http://jasperreports.sourceforge.net</url>
@@ -631,7 +631,7 @@
 						<path>
 							<groupId>net.sf.jasperreports</groupId>
 							<artifactId>jasperreports-annotation-processors</artifactId>
-							<version>master-SNAPSHOT</version>
+							<version>${project.version}</version>
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
@@ -672,6 +672,18 @@
 				<configuration>
 					<comparisonVersion>6.15.0</comparisonVersion>
 					<ignoredDifferencesFile>${basedir}/clirr-ignore.xml</ignoredDifferencesFile>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>4.2.1</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Export-Package>net.sf.jasperreports.*</Export-Package>
+						<Import-Package>org.joda.time.*,oracle.jdbc;resolution:=optional,*</Import-Package>
+					</instructions>
 				</configuration>
 			</plugin>
 		</plugins>
