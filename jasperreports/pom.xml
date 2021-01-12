@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.sf.jasperreports</groupId>
 	<artifactId>jasperreports</artifactId>
-	<version>6.16.0</version>
+	<version>6.16.0.0</version>
 	<packaging>bundle</packaging>
 	<name>JasperReports Library</name>
 	<description>Free Java Reporting Library</description>
@@ -439,7 +439,7 @@
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports-fonts</artifactId>
-			<version>${project.version}</version>
+			<version>6.16.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -508,7 +508,7 @@
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports-metadata</artifactId>
-			<version>${project.version}</version>
+			<version>6.16.0</version>
 			<scope>compile</scope>
 			<optional>true</optional>
 		</dependency>
@@ -631,7 +631,7 @@
 						<path>
 							<groupId>net.sf.jasperreports</groupId>
 							<artifactId>jasperreports-annotation-processors</artifactId>
-							<version>${project.version}</version>
+							<version>6.16.0</version>
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
