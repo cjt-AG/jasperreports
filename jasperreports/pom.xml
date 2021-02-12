@@ -682,7 +682,7 @@
 				<configuration>
 					<instructions>
 						<Export-Package>net.sf.jasperreports.*</Export-Package>
-						<Import-Package>org.joda.time.*,oracle.jdbc;resolution:=optional,*</Import-Package>
+						<Import-Package>org.joda.time.*,oracle.jdbc;resolution:=optional,net.sf.jasperreports.functions.standard.*,*</Import-Package>
 					</instructions>
 				</configuration>
 			</plugin>
